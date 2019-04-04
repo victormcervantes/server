@@ -11,11 +11,11 @@ def on_new_client(clientsocket, addr, name):
 	while True:
 		msg = clientsocket.recv(1024)
 		if not msg: break
+		print (addr, '[',name,'] >> ', msg.decode("utf-8"))
+		msg = raw_input('SERVER >>')
 		f = open('log.txt', 'w')
 		f.write(msg + '\n')
 		f.close()
-		print (addr, '[',name,'] >> ', msg.decode("utf-8"))
-		# msg = raw_input('SERVER >>')
 		clientsocket.send(b'got your msg!\r\n')
 	print('closing ',addr)
 	clientsocket.close()
