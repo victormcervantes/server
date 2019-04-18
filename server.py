@@ -13,9 +13,9 @@ def on_new_client(clientsocket, addr, name):
 		if not msg: break
 		print (addr, '[',name,'] >> ', msg.decode("utf-8"))
 		msg = raw_input('SERVER >>')
-		f = open('log.txt', 'w')
-		f.write(msg + '\n')
-		f.close()
+		#f = open('log.txt', 'w')
+		#f.write(msg + '\n')
+		#f.close()
 		clientsocket.send(b'got your msg!\r\n')
 	print('closing ',addr)
 	clientsocket.close()
